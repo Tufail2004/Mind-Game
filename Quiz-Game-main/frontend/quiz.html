@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Play — Arfus 🎮</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/quiz.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="dashboard.html" class="logo" aria-label="Arfus home">
+      <span class="logo-mark" aria-hidden="true">🎮</span>
+      <span class="logo-word">Arfus</span>
+    </a>
+    <div class="nav-right">
+      <button id="themeToggle" class="icon-btn" title="Day / night mode" aria-label="Toggle color theme"></button>
+      <span id="navUserName" class="nav-user"></span>
+      <button id="logoutBtn" class="btn btn-small">Bye! 👋</button>
+    </div>
+  </nav>
+
+  <main class="container quiz-page">
+    <div id="loadingBox" class="card center">
+      <div class="wiggle" style="font-size:3rem">🎲</div>
+      <p class="muted">Getting your questions ready... ⏳</p>
+    </div>
+
+    <div id="errorBox" class="card center hidden">
+      <div style="font-size:3rem">😢</div>
+      <p class="error-text" id="errorText">Oops! Something went wrong.</p>
+      <a href="dashboard.html" class="btn btn-primary" style="margin-top:1rem">Try again 🔄</a>
+    </div>
+
+    <div id="quizBox" class="hidden">
+      <div class="quiz-top">
+        <span class="qcount" id="questionCounter">Question 1 of 10</span>
+        <span class="qmeta" id="difficultyBadge">😊 Easy peasy</span>
+        <span class="timer-wrap" id="timerWrap"><span class="ticon">⏱️</span><span id="timer" class="num">30</span></span>
+        <span class="qcount">⭐ <span id="liveScore" class="num">0</span> pts</span>
+      </div>
+      <div class="progress"><div class="bar" id="progressFill"></div></div>
+
+      <div class="qcard" id="questionCard">
+        <p class="qtext" id="questionText"></p>
+        <div class="options" id="options"></div>
+        <div id="explanationBox" class="explain hidden">💡 <b>Did you know?</b> <span id="explanationText"></span></div>
+      </div>
+
+      <div class="quiz-nav">
+        <a href="dashboard.html" class="btn btn-small">🏃 Quit</a>
+        <button id="nextBtn" class="btn btn-primary btn-small hidden">Next! ➡️</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Arfus 🛠️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="dashboard.html" class="logo" aria-label="Arfus home">
+      <span class="logo-mark" aria-hidden="true">🎮</span>
+      <span class="logo-word">Arfus</span>
+    </a>
+    <div class="nav-links">
+      <a href="dashboard.html">🏠 Home</a>
+      <a href="leaderboard.html">🏆 Ranks</a>
+      <a href="history.html">📚 My games</a>
+      <a href="admin.html" id="adminLink" class="active">🛠️ Admin</a>
+    </div>
+    <div class="nav-right">
+      <button id="themeToggle" class="icon-btn" title="Day / night mode" aria-label="Toggle color theme"></button>
+      <span id="navUserName" class="nav-user"></span>
+      <button id="logoutBtn" class="btn btn-small">Bye! 👋</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="page-head bounce-in">
+      <span class="eyebrow">🛠️ Control room</span>
+      <h1>Admin panel</h1>
+    </div>
+
+    <div id="accessDenied" class="card center hidden">
+      <p class="error-text">Oops! This area is for admins only. 🔒</p>
+      <a href="dashboard.html" class="btn btn-primary" style="margin-top:1rem">← Back home 🏠</a>
+    </div>
+
+    <div id="adminContent" class="hidden">
+      <div class="tabs">
+        <button class="tab active" data-tab="questions">❓ Questions</button>
+        <button class="tab" data-tab="add">➕ Add question</button>
+        <button class="tab" data-tab="users">👥 Players</button>
+        <button class="tab" data-tab="results">📊 All scores</button>
+      </div>
+
+      <!-- Questions list -->
+      <section id="tab-questions" class="tab-panel card table-wrap">
+        <div class="row-between">
+          <h2>All questions ❓</h2>
+          <label class="inline">Filter:
+            <select id="adminCategoryFilter"><option value="">Everything 🌈</option></select>
+          </label>
+        </div>
+        <table class="table">
+          <thead>
+            <tr><th>Question</th><th>Topic</th><th>Level</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="adminQuestionsBody">
+            <tr><td colspan="4" class="center muted">Loading... ⏳</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Add / edit question -->
+      <section id="tab-add" class="tab-panel card hidden">
+        <h2 id="questionFormTitle">➕ Add a question!</h2>
+        <div id="qFormError" class="error-box hidden"></div>
+        <form id="questionForm" novalidate>
+          <input type="hidden" id="qId" />
+          <label>Question ❓<textarea id="qText" rows="2" required placeholder="e.g. What sound does a cow make? 🐄"></textarea></label>
+          <div class="grid-2">
+            <label>Answer A<input id="qOpt0" required placeholder="😊" /></label>
+            <label>Answer B<input id="qOpt1" required placeholder="🤩" /></label>
+            <label>Answer C<input id="qOpt2" required placeholder="😜" /></label>
+            <label>Answer D<input id="qOpt3" required placeholder="🤪" /></label>
+          </div>
+          <div class="grid-2">
+            <label>Right answer ⭐
+              <select id="qCorrect">
+                <option value="0">Answer A</option>
+                <option value="1">Answer B</option>
+                <option value="2">Answer C</option>
+                <option value="3">Answer D</option>
+              </select>
+            </label>
+            <label>How tricky? 🤔
+              <select id="qDifficulty">
+                <option value="easy">😊 Easy peasy</option>
+                <option value="medium">🤩 Tricky</option>
+                <option value="hard">🧠 Super hard</option>
+              </select>
+            </label>
+          </div>
+          <label>Topic 🎨
+            <input id="qCategory" list="categoryList" required placeholder="e.g. Animals 🐾" />
+            <datalist id="categoryList"></datalist>
+          </label>
+          <label>Fun fact 💡<textarea id="qExplanation" rows="2" placeholder="A cool fact shown after answering!"></textarea></label>
+          <div class="row-between">
+            <button type="submit" class="btn btn-primary" id="qSubmitBtn">Add it! ➕</button>
+            <button type="button" class="btn hidden" id="qCancelBtn">Never mind</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Users -->
+      <section id="tab-users" class="tab-panel card table-wrap hidden">
+        <h2>Our players! 👥</h2>
+        <table class="table">
+          <thead><tr><th>Name</th><th>Role</th><th>Joined</th></tr></thead>
+          <tbody id="adminUsersBody">
+            <tr><td colspan="3" class="center muted">Loading... ⏳</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Results -->
+      <section id="tab-results" class="tab-panel card table-wrap hidden">
+        <h2>Every single score! 📊</h2>
+        <table class="table">
+          <thead><tr><th>Player</th><th class="num">Score</th><th class="num">Awesome %</th><th>Topic</th><th>Level</th><th>Date</th></tr></thead>
+          <tbody id="adminResultsBody">
+            <tr><td colspan="6" class="center muted">Loading... ⏳</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">Made with 💖 for curious minds · Arfus</footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

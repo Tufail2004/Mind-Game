@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard — Arfus 🎮</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="dashboard.html" class="logo" aria-label="Arfus home">
+      <span class="logo-mark" aria-hidden="true">🎮</span>
+      <span class="logo-word">Arfus</span>
+    </a>
+    <div class="nav-links">
+      <a href="dashboard.html" class="active">🏠 Home</a>
+      <a href="leaderboard.html">🏆 Ranks</a>
+      <a href="history.html">📚 My games</a>
+      <a href="admin.html" id="adminLink" class="hidden">🛠️ Admin</a>
+    </div>
+    <div class="nav-right">
+      <button id="themeToggle" class="icon-btn" title="Day / night mode" aria-label="Toggle color theme"></button>
+      <span id="navUserName" class="nav-user"></span>
+      <button id="logoutBtn" class="btn btn-small">Bye! 👋</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="page-head bounce-in">
+      <span class="eyebrow">🌟 Your playground</span>
+      <h1 id="welcomeHeading">Hi there! 👋</h1>
+      <p>Pick a game and let's have some fun!</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card pop-in"><span class="sicon">🎮</span><b id="statQuizzes" class="num">0</b><span>Games played</span></div>
+      <div class="stat-card pop-in"><span class="sicon">⭐</span><b id="statHighest" class="num">0</b><span>Best score</span></div>
+      <div class="stat-card pop-in"><span class="sicon">🎯</span><b id="statAverage" class="num">0%</b><span>Average</span></div>
+      <div class="stat-card pop-in"><span class="sicon">✅</span><b id="statCorrect" class="num">0</b><span>Right answers</span></div>
+    </div>
+
+    <div class="card tape">
+      <h2>🎲 Start a new game!</h2>
+      <div class="grid-2">
+        <label>Pick a topic 🎨
+          <select id="categorySelect"><option value="">Loading... ⏳</option></select>
+        </label>
+        <label>How tricky? 🤔
+          <select id="difficultySelect">
+            <option value="easy">😊 Easy peasy</option>
+            <option value="medium">🤩 Tricky</option>
+            <option value="hard">🧠 Super hard</option>
+          </select>
+        </label>
+      </div>
+      <button id="startQuizBtn" class="btn btn-primary" style="margin-top:0.5rem">Let's play! 🚀</button>
+    </div>
+
+    <div class="card">
+      <h2>🕹️ Your recent games</h2>
+      <div id="recentList" class="recent-list">
+        <p class="muted">No games yet — your scores will show up here! 🎮</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">Made with 💖 for curious minds · Arfus</footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your score! — Arfus 🏆</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="dashboard.html" class="logo" aria-label="Arfus home">
+      <span class="logo-mark" aria-hidden="true">🎮</span>
+      <span class="logo-word">Arfus</span>
+    </a>
+    <div class="nav-links">
+      <a href="dashboard.html">🏠 Home</a>
+      <a href="leaderboard.html">🏆 Ranks</a>
+      <a href="history.html">📚 My games</a>
+      <a href="admin.html" id="adminLink" class="hidden">🛠️ Admin</a>
+    </div>
+    <div class="nav-right">
+      <button id="themeToggle" class="icon-btn" title="Day / night mode" aria-label="Toggle color theme"></button>
+      <span id="navUserName" class="nav-user"></span>
+      <button id="logoutBtn" class="btn btn-small">Bye! 👋</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div id="noResultBox" class="card center hidden">
+      <div style="font-size:3rem">🤔</div>
+      <p class="muted">Hmm, no game found! Play one first! 🎮</p>
+      <a href="dashboard.html" class="btn btn-primary" style="margin-top:1rem">Let's play! 🚀</a>
+    </div>
+
+    <div id="resultCard" class="hidden">
+      <div class="result-hero">
+        <div class="score-ring"><div class="inner"><b id="finalScore" class="num">0</b></div></div>
+        <h1>Yay, you did it! 🎉</h1>
+        <p class="perf-msg" id="performanceMsg"></p>
+      </div>
+
+      <div class="breakdown">
+        <div class="bk ok"><b id="rCorrect" class="num">0</b><span>✅ Right!</span></div>
+        <div class="bk no"><b id="rIncorrect" class="num">0</b><span>❌ Oops</span></div>
+        <div class="bk skip"><b id="rUnanswered" class="num">0</b><span>⏭️ Skipped</span></div>
+        <div class="bk time"><b id="rTime" class="num">0s</b><span>⏱️ Time</span></div>
+      </div>
+
+      <div class="card center">
+        <h2>Your report card 📝</h2>
+        <p class="muted"><span id="rTotal" class="num">0</span> questions · <span id="rPercentage" class="num">0%</span> awesome!</p>
+      </div>
+
+      <div class="result-actions">
+        <button id="playAgainBtn" class="btn btn-primary">Play again! 🔄</button>
+        <a href="dashboard.html" class="btn">🏠 Home</a>
+        <a href="leaderboard.html" class="btn btn-purple">🏆 See ranks</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">Made with 💖 for curious minds · Arfus</footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/result.js"></script>
+</body>
+</html>

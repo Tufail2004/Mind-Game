@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top players — Arfus 🏆</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="dashboard.html" class="logo" aria-label="Arfus home">
+      <span class="logo-mark" aria-hidden="true">🎮</span>
+      <span class="logo-word">Arfus</span>
+    </a>
+    <div class="nav-links">
+      <a href="dashboard.html">🏠 Home</a>
+      <a href="leaderboard.html" class="active">🏆 Ranks</a>
+      <a href="history.html">📚 My games</a>
+      <a href="admin.html" id="adminLink" class="hidden">🛠️ Admin</a>
+    </div>
+    <div class="nav-right">
+      <button id="themeToggle" class="icon-btn" title="Day / night mode" aria-label="Toggle color theme"></button>
+      <span id="navUserName" class="nav-user"></span>
+      <button id="logoutBtn" class="btn btn-small">Bye! 👋</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="page-head bounce-in">
+      <span class="eyebrow">🏆 Hall of fame</span>
+      <h1>Top players!</h1>
+      <p>The best of the best — can you beat them? 😎</p>
+    </div>
+
+    <div class="card table-wrap">
+      <table class="table" id="leaderboardTable">
+        <thead>
+          <tr><th>Rank</th><th>Player</th><th class="num">Score</th><th class="num">Awesome %</th><th>Topic</th><th>Level</th><th>Date</th></tr>
+        </thead>
+        <tbody id="leaderboardBody">
+          <tr><td colspan="7" class="center muted">Loading the champions... ⏳</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="footer">Made with 💖 for curious minds · Arfus</footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/leaderboard.js"></script>
+</body>
+</html>
