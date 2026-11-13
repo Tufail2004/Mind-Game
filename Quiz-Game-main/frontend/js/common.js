@@ -1,4 +1,4 @@
-const API_BASE = localStorage.getItem('quizApiBase') || 'https://mind-game-mmo7-he8jimlyp-ahmedtufail516-7765s-projects.vercel.app';
+const API_BASE = localStorage.getItem('quizApiBase') || 'https://mind-game-mmo7-he8jimlyp-ahmedtufail516-7765s-projects.vercel.app/api';
 
 function getToken() {
   return localStorage.getItem('quizToken');
