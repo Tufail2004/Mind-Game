@@ -26,7 +26,15 @@ async function apiFetch(path, options = {}) {
   const token = getToken();
   if (token) headers.Authorization = `Bearer ${token}`;
 
-  const res = await fetch(API_BASE + path, { ...options, headers });
+  let res;
+  try {
+    res = await fetch(API_BASE + path, { ...options, headers });
+  } catch (error) {
+    if (error instanceof TypeError) {
+      throw new Error(`Cannot reach the API at ${API_BASE}. Make sure the backend is running and connected to MongoDB.`);
+    }
+    throw error;
+  }
 
   if (res.status === 401) {
     clearAuth();
