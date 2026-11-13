@@ -13,7 +13,14 @@ const autoSeed = require('./utils/autoSeed');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+const corsOptions = {
+  origin: '*',
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+// Apply CORS before routes so API responses and preflight requests are covered.
+app.use(cors(corsOptions));
 app.use(express.json());
 
 connectDB().then(autoSeed);
